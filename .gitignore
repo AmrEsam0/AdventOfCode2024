@@ -30,5 +30,4 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-src/day*/input.txt
 src/day*/input_*.txt
