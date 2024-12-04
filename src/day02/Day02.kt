@@ -6,6 +6,7 @@ import kotlin.io.path.readLines
 object Day02 {
 
     private const val PATH_TO_INPUT_01 = "src/day02/input_part01.txt"
+    private const val PATH_TO_INPUT_02 = "src/day02/input_part02.txt"
 
     private fun isLevelSafe(level: List<Long>): Boolean {
         // Trivial case: single or empty list is valid
@@ -29,4 +30,29 @@ object Day02 {
         return result
     }
 
+    private fun isLevelDampenedSafe(level: List<Long>): Boolean {
+        if (isLevelSafe(level)) return true
+
+        for (i in level.indices) {
+            val filteredLevel = level.filterIndexed { index, _ -> index != i }
+            if (isLevelSafe(filteredLevel)) {
+                return true
+            }
+        }
+        return false
+    }
+
+    fun part02(pathToInput: String = PATH_TO_INPUT_02): Long {
+        val lines = Path(pathToInput).readLines()
+        val levels = lines.map { line -> line.split(" ").map { it.toLong() } }
+        var result = 0L
+        levels.forEach { level ->
+            val isDampenedSafe: Boolean = isLevelDampenedSafe(level)
+            if (isDampenedSafe) {
+                result += 1
+            }
+            println(isDampenedSafe)
+        }
+        return result
+    }
 }
