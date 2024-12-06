@@ -5,8 +5,7 @@ import kotlin.io.path.readLines
 
 object Day02 {
 
-    private const val PATH_TO_INPUT_01 = "src/day02/input_part01.txt"
-    private const val PATH_TO_INPUT_02 = "src/day02/input_part02.txt"
+    private const val PATH_TO_INPUT = "src/day02/input.txt"
 
     private fun isLevelSafe(level: List<Long>): Boolean {
         // Trivial case: single or empty list is valid
@@ -22,7 +21,7 @@ object Day02 {
         return increasing || decreasing
     }
 
-    fun part01(pathToInput: String = PATH_TO_INPUT_01): Long {
+    fun part01(pathToInput: String = PATH_TO_INPUT): Long {
         val lines = Path(pathToInput).readLines()
         val levels = lines.map { line -> line.split(" ").map { it.toLong() } }
         var result = 0L
@@ -42,7 +41,7 @@ object Day02 {
         return false
     }
 
-    fun part02(pathToInput: String = PATH_TO_INPUT_02): Long {
+    fun part02(pathToInput: String = PATH_TO_INPUT): Long {
         val lines = Path(pathToInput).readLines()
         val levels = lines.map { line -> line.split(" ").map { it.toLong() } }
         var result = 0L

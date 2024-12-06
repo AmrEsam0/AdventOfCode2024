@@ -4,7 +4,7 @@ import kotlin.io.path.Path
 import kotlin.io.path.readText
 
 object Day03 {
-    private const val PATH_TO_INPUT_01 = "src/day03/input_part01.txt"
+    private const val PATH_TO_INPUT_01 = "src/day03/input.txt"
 
     private val mulRegex = """mul\((\d{1,3}),(\d{1,3})\)""".toRegex()
     private fun String.solveOneMul(): Int {

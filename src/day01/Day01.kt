@@ -5,10 +5,9 @@ import kotlin.io.path.readLines
 import kotlin.math.abs
 
 object Day01 {
-    private const val PATH_TO_INPUT_01 = "src/day01/input_part01.txt"
-    private const val PATH_TO_INPUT_02 = "src/day01/input_part02.txt"
+    private const val PATH_TO_INPUT = "src/day01/input.txt"
 
-    fun part01(pathToInput: String = PATH_TO_INPUT_01): Long {
+    fun part01(pathToInput: String = PATH_TO_INPUT): Long {
         val lines = Path(pathToInput).readLines()
         val (leftList, rightList) =
             lines
@@ -25,7 +24,7 @@ object Day01 {
         return distanceBetweenLists
     }
 
-    fun part02(pathToInput: String = PATH_TO_INPUT_02): Long {
+    fun part02(pathToInput: String = PATH_TO_INPUT): Long {
         val lines = Path(pathToInput).readLines()
         val (leftList, rightList) =
             lines
@@ -37,9 +36,7 @@ object Day01 {
                 .unzip()
 
         var similarityScore = 0L
-       leftList.forEach { left ->
-           similarityScore += (rightList.count { it == left }) * left
-       }
+        leftList.forEach { left -> similarityScore += (rightList.count { it == left }) * left }
         return similarityScore
     }
 }
